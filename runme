@@ -1,10 +1,9 @@
-echo runme
-#GITHUB=https://github.com/alex-learn/html.git
-#DEST=/home/www/html
-#NEWAPP=""
+GITHUB=https://github.com/alex-learn/html.git
+DEST=/home/www/html
+NEWAPP=""
 
-#[ ! -d $DEST ] && ( ( git clone $GITHUB $DEST ); chown -R www-data: $DEST;chmod -R 755 $DEST)
+[ ! -d $DEST ] && ( ( git clone $GITHUB $DEST ); chown -R www-data: $DEST;chmod -R 755 $DEST)
 
-#( NEWAPP=$(cd $DEST;git pull | grep "up-to-date") )
-#[ ! -z "$NEWAPP" ] && ( cd /home/www;chown -R www-data: html;chmod -R 755 html )
+( NEWAPP=$(cd $DEST;git pull | grep "up-to-date") )
+[ ! -z "$NEWAPP" ] && ( cd /home/www;chown -R www-data: html;chmod -R 755 html )
 
