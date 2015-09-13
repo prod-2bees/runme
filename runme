@@ -2,8 +2,8 @@ GITHUB=https://github.com/alex-learn/html.git
 DEST=/home/www/html
 NEWAPP=""
 
-[ ! -d $DEST ] && ( ( git clone $GITHUB $DEST ); chown -R www-data: $DEST;chmod -R 755 $DEST)
+[ ! -d $DEST ] && (su - www-data -c  "git clone $GITHUB $DEST")
 
-( NEWAPP=$(cd $DEST;git pull | grep "up-to-date") )
-[ ! -z "$NEWAPP" ] && ( cd /home/www;chown -R www-data: html;chmod -R 755 html )
+( NEWAPP=$(su - www-data -c "cd $DEST;git pull" | grep "up-to-date") )
+[ ! -z "$NEWAPP" ] && echo "pull in new updates"
 
